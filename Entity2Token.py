@@ -31,13 +31,14 @@ def dbpediaEntity2Token():
     result_key_chunks = s.shallowParse(question)
     er_predict_result = e.erpredict(result_key_chunks)
     print er_predict_result
-    print question
+    print "Before: " + question
     #　[{'chunk': 'father', 'surfacelength': 6, 'class': 'relation', 'surfacestart': 13}, {'chunk': 'Kobe Bryant', 'surfacelength': 11, 'class': 'entity', 'surfacestart': 23}, {'chunk': 'born', 'surfacelength': 4, 'class': 'relation', 'surfacestart': 35}]
     res = question
     # print res
     for item in er_predict_result:
         if item['class'] == 'entity':
             res = res.replace(item['chunk'], "<Entity>")
+    print "After:  " + res
     return json.dumps(res)
 
 if __name__ == '__main__':
