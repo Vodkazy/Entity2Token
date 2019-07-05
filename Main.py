@@ -27,7 +27,8 @@ e = ErPredictor()
 
 @app.route('/dbpediaEntity2Token', methods=['POST'])
 def dbpediaEntity2Token():
-    question = request.get_json(silent=True)['question']
+    tq = request.get_json(silent=True)
+    question = tq['question']
     result_key_chunks = s.shallowParse(question)
     er_predict_result = e.erpredict(result_key_chunks)
     print er_predict_result
@@ -43,13 +44,15 @@ def dbpediaEntity2Token():
 
 @app.route('/getNER', methods=['POST'])
 def getNER():
-    question = request.get_json(silent=True)['question']
+    tq = request.get_json(silent=True)
+    question = tq['question']
     result_key_chunks = s.shallowParse(question)
     er_predict_result = e.erpredict(result_key_chunks)
     ans = []
     for item in er_predict_result:
         if item['class'] == 'entity':
             ans.append(item)
+    print ans
     return json.dumps(ans)
 
 if __name__ == '__main__':

@@ -28,3 +28,7 @@ If you want someone else to call your service, please change `localhost` to your
 ### Usage
 
 Same as the usage mentioned in *Fuction1*, just need to replace `dbpediaEntity2Token` with `getNER`.
+
+### Note
+
+If there are some Non-ASCII character in your question, please encode them into utf-8 and then send the request, otherwise the server will occur some problems (because of the bug of 'request' function) and can't return the correct answer for you.
