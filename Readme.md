@@ -11,7 +11,7 @@ Main.py
 run this command
 
 ```python
-	python Main.py
+    python Main.py
 ```
 
 and this service will be running at localhost:4399.
@@ -20,11 +20,11 @@ If you wanna have a query,please use curl in dos window,and send this message to
 ```python
     curl -XPOST 'localhost:4399/dbpediaEntity2Token' -H 'Content-Type: application/json' -d"{\"question\":\"Norway has a lot of electric cars-so many that it can make anyone driving a new vehicle with an internal combustion engine look like a Luddite. \"}"
 ```
-If you want someone else to call your service, please change `localhost` to your ip.
+If you want someone else to call your service, please change `localhost` to your `ip`.
 
 
 ## Fuction2 : Get NER infomation
 
 ### Usage
 
-Same as the usage mentioned in Fuction1, just need to replace `dbpediaEntity2Token` with `getNER`.
+Same as the usage mentioned in *Fuction1*, just need to replace `dbpediaEntity2Token` with `getNER`.
