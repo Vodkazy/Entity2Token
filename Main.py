@@ -3,7 +3,7 @@
 """
   @ Time     : 19-3-25 下午7:53
   @ Author   : Vodka
-  @ File     : Entity2Token.py
+  @ File     : Main.py
   @ Software : PyCharm
 """
 from flask import request
@@ -41,6 +41,18 @@ def dbpediaEntity2Token():
     print "After:  " + res
     return json.dumps(res)
 
+@app.route('/getNER', methods=['POST'])
+def getNER():
+    question = request.get_json(silent=True)['question']
+    result_key_chunks = s.shallowParse(question)
+    er_predict_result = e.erpredict(result_key_chunks)
+    ans = []
+    for item in er_predict_result:
+        if item['class'] == 'entity':
+            ans.append(item)
+    return json.dumps(ans)
+
 if __name__ == '__main__':
-    http_server = WSGIServer(('', int(sys.argv[1])), app)
+    # int(sys.argv[1])) 
+    http_server = WSGIServer(('', 4399), app)
     http_server.serve_forever()
