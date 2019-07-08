@@ -1,0 +1,13 @@
+Flask==1.0.2
+Keras==2.2.4
+Keras-Applications==1.0.6
+Keras-Preprocessing==1.0.5
+Markdown==2.6.11
+nltk==3.3
+numpy==1.14.3
+requests==2.18.4
+stop-words==2015.2.23.1
+tensorboard==1.8.0
+tensorflow==1.8.0
+practNLPTools==1.0
+

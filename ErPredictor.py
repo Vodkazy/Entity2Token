@@ -9,8 +9,6 @@
 from keras.models import model_from_json
 from keras.optimizers import Adam
 import numpy as np
-import string
-import sys
 # encoding=utf8
 import sys
 reload(sys)
